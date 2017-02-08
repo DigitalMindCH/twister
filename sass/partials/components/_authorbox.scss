@@ -18,7 +18,9 @@ $authorbox_collapse: 510px;
         }
 
         @media screen and (max-width: $authorbox_collapse){
-            @extend %center;
+            display: block;
+            position: relative;
+            margin: 0px auto;
             padding-right: 0;
         }
     }
