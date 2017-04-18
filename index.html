@@ -33,7 +33,12 @@ description: the good site of life
             {% if i == paginator.page %}
                 <span class="disabled">{{ i }}</span>
             {% else %}
-                <a href="/page/{{ i }}">{{ i }}</a>
+                <!-- page/1 will render 404, so redirect to index.html-->
+                {% if i == 1 %}
+                    <a href="{{ '/' | prepend: site.baseurl | replace: '//', '/' }}">{{ i }}</a>
+                {% else %}
+                    <a href="/page/{{ i }}">{{ i }}</a>
+                {% endif %}
             {% endif %}
         {% endfor %}
 
